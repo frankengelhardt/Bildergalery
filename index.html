@@ -2,42 +2,57 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Für bessere Darstellung auf mobilen Geräten -->
-    <title>Gallery</title>
-    <link rel="stylesheet" href="styles2.css"> <!-- Dein angepasstes Stylesheet -->
-    <script src="script2.js" defer></script> <!-- Verlinkung zur externen JavaScript-Datei -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bildergalerie</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h2>Gallery</h2>
-
-    <!-- Steuerungsbuttons (Previous, Next, Start/Stop) -->
-    <div class="ctrls">
-        <button>prev</button>
-        <button>next</button>
-        <button>START</button>
-    </div>
-
-    <!-- Thumbnail Container -->
-    <div class="thumb-wrap">
-        <div class="thumb"></div> <!-- Hier werden die Thumbnails dynamisch hinzugefügt -->
-    </div>
-
-    <!-- Großes Bild Container -->
-    <div class="big">
-        <!-- Hier wird das große Bild angezeigt -->
-    </div>
-
-    <!-- Bildbeschreibung -->
-    <div id="image-description"></div> 
-
-    <!-- Footer und Cookie-Notification -->
-    <footer>
-        <h3>Meine Kleine bilder Gallery</h3>
-        <div id="cookieOk">
-            <div>Wir verwenden Cookies. Ist das ok?</div>
-            <button>ja</button>
-            <button>nein</button>
+    <!-- Header-Bereich -->
+    <header>
+        <h1>Meine Bildergalerie</h1>
+    </header>
+    
+    <!-- Hauptinhalt -->
+    <main>
+        <!-- Steuerelemente für die Galerie -->
+        <div class="controls">
+            <button id="prevBtn">Vorheriges</button>
+            <button id="nextBtn">Nächstes</button>
+            <button id="startBtn">Start</button>
+            
+            <!-- Dunkelmodus-Switch -->
+            <div class="dark-mode-container">
+                <input type="checkbox" id="darkModeToggle">
+                <label for="darkModeToggle"></label>
+                <span class="dark-mode-label">Dunkelmodus</span>
+            </div>
+            
+            <!-- Bild-Upload-Funktion -->
+            <input type="file" id="imageUpload" accept="image/*">
+            <label for="imageUpload">Bild hochladen</label>
         </div>
+        
+        <!-- Galerie-Bereich -->
+        <div class="gallery">
+            <!-- Großes Bild -->
+            <div class="big">
+                <!-- Bilder werden hier dynamisch eingefügt -->
+            </div>
+            <!-- Bildbeschreibung -->
+            <p id="image-description"></p>
+            <!-- Thumbnail-Bereich -->
+            <div class="thumb">
+                <!-- Thumbnails werden hier dynamisch eingefügt -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer-Bereich -->
+    <footer>
+        <p>© 2025 Meine Bildergalerie</p>
     </footer>
+    
+    <script src="script.js"></script>
 </body>
 </html>
+
