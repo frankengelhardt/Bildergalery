@@ -13,9 +13,40 @@ body {
 
 /* Dunkelmodus */
 body.dark-mode {
-    background-color: #333;
+    background-color: #1a1a1a;
     color: #f0f0f0;
 }
+
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #2c2c2c;
+}
+
+body.dark-mode .big {
+  background: #333;
+  border-color: #555;
+}
+
+body.dark-mode button,
+body.dark-mode input[type="file"] + label {
+  background-color: #444;
+  color: #f0f0f0;
+}
+
+body.dark-mode button:hover,
+body.dark-mode input[type="file"] + label:hover {
+  background-color: #555;
+}
+
+body.dark-mode .thumb img {
+  border-color: #555;
+}
+
+body.dark-mode .thumb img.active {
+  border-color: #f1e6e6;
+  box-shadow: 6px 7px 10px rgba(235, 232, 232, 98%);
+}
+
 
 /* Header-Styling */
 header {
@@ -126,7 +157,6 @@ input[type="file"] {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    border: 3px solid #1828e7;
     border-radius: 10px;
     background: #b7b7b7d1;
 }
@@ -175,7 +205,7 @@ input[type="file"] {
 .thumb img.active {
     border-color: #e50f0f;
     transform: scale(1.1);
-    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+    box-shadow: 11px 8px 10px rgba(85, 83, 83, 94%);
 }
 
 /* Footer-Styling */

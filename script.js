@@ -10,23 +10,26 @@ let images = [
     { "thumb": "images/thumbs/pic8.jpg", "big": "images/big/Tulips.jpg", "description": "Tulpen" }
 ];
 
-let imgNr = 0;
-let slider;
-let isSlider = false;
-let imageBigElements;
+// Globale Variablen
+let imgNr = 0; // Aktuelle Bildnummer
+let slider; // Variable für den Slider-Intervall
+let isSlider = false; // Flag für den Slider-Status
+let imageBigElements; // Array für die großen Bildelemente
 
 // Speichern der Bilder im localStorage
 function saveImagesToLocalStorage() {
+	// Wenn noch keine Bilddaten im localStorage sind, speichere die Standard-Bilder
     if (!localStorage.getItem("imageData")) {
         localStorage.setItem("imageData", JSON.stringify(images));
     }
+	// Lade die Bilddaten aus dem localStorage
     images = JSON.parse(localStorage.getItem("imageData"));
 }
 
 // Erstellen der Thumbnail-Bilder
 function createThumbImages() {
     const divThumb = document.querySelector("div.thumb");
-    divThumb.innerHTML = "";
+    divThumb.innerHTML = ""; // Leere den Thumbnail-Container
     images.forEach((image, i) => {
         const newImg = document.createElement("img");
         newImg.setAttribute("src", image.thumb);
@@ -43,7 +46,7 @@ function createThumbImages() {
 // Erstellen der großen Bilder
 function createBigImages() {
     const divBig = document.querySelector(".big");
-    divBig.innerHTML = "";
+    divBig.innerHTML = ""; // Leere den Container für große Bilder
     images.forEach((image, i) => {
         const newImg = document.createElement("img");
         newImg.setAttribute("src", image.big);
@@ -186,7 +189,39 @@ function init() {
     if (isDarkMode) {
         document.body.classList.add("dark-mode");
     }
+	    // Footer-Jahr aktualisieren
+    updateFooterYear();
 }
 
 // Starten der Initialisierung, wenn das DOM geladen ist
 document.addEventListener("DOMContentLoaded", init);
+
+// Funktion zum Setzen des aktuellen Jahres im Footer
+function updateFooterYear() {
+    const currentYear = new Date().getFullYear(); // Holt das aktuelle Jahr
+    document.getElementById("currentYear").textContent = currentYear; // Fügt das Jahr in das Element ein
+}
+
+// Initialisierungsfunktion
+function init() {
+    saveImagesToLocalStorage();
+    createThumbImages();
+    createBigImages();
+    imgNr = parseInt(localStorage.getItem("imgNr")) || 0;
+    setBigImg(imgNr);
+    createCtrlEvents();
+
+    // Dunkelmodus-Zustand wiederherstellen
+    const isDarkMode = localStorage.getItem("darkMode") === "true";
+    document.getElementById("darkModeToggle").checked = isDarkMode;
+    if (isDarkMode) {
+        document.body.classList.add("dark-mode");
+    }
+
+    // Footer-Jahr aktualisieren
+    updateFooterYear();
+}
+
+// Starten der Initialisierung, wenn das DOM geladen ist
+document.addEventListener("DOMContentLoaded", init);
+
