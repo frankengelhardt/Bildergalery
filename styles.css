@@ -51,7 +51,7 @@ body.dark-mode .thumb img.active {
 /* Header-Styling */
 header {
     background-color: #aba055;
-    color: white;
+    color: #000000;
     text-align: center;
     padding: 20px 0;
 }
